@@ -1,12 +1,13 @@
 package ca.helios5009.hyperion.core.misc
 
-import android.os.Build
-import android.os.Environment
-import androidx.annotation.RequiresApi
+import org.firstinspires.ftc.robotcore.internal.system.AppUtil
 
-@RequiresApi(Build.VERSION_CODES.R)
+import kotlin.io.path.Path
+
+
 class FileReader {
 	fun getFile(path: String): String {
-		return Environment.getStorageDirectory().absolutePath + "/self/primary/Hyperion/" + path
+		println(AppUtil.ROOT_FOLDER.absolutePath)
+		return AppUtil.FIRST_FOLDER.absolutePath + "/Hyperion/$path"
 	}
 }

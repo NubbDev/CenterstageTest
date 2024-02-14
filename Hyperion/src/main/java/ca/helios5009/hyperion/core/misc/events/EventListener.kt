@@ -1,6 +1,5 @@
 package ca.helios5009.hyperion.core.misc.events
 
-import ca.helios5009.core.misc.events.Event
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

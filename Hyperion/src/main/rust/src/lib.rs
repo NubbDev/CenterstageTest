@@ -2,14 +2,15 @@ use std::fmt;
 
 use construction::command_read;
 use jni::{
-    objects::{JClass, JString},
+    objects::{JClass, JList, JMap, JObject, JString},
     sys::jstring,
     JNIEnv,
 };
 use serde::{Deserialize, Serialize};
-use serde_json::json;
+// use serde_json::json;
 
 pub mod construction;
+pub mod math;
 
 #[derive(Serialize, Deserialize, PartialEq, Clone)]
 pub struct Event {
@@ -92,12 +93,12 @@ impl Wait {
 }
 
 impl Error {
-    fn new(error_type: ErrorType, message: String) -> Error {
-        Error {
-            error_type,
-            message,
-        }
-    }
+    // fn new(error_type: ErrorType, message: String) -> Error {
+    //     Error {
+    //         error_type,
+    //         message,
+    //     }
+    // }
 }
 
 impl fmt::Display for Error {
@@ -164,7 +165,7 @@ impl fmt::Display for ErrorType {
 }
 
 #[no_mangle]
-pub extern "system" fn Java_ca_helios5009_core_CommandsParse_read<'local>(
+pub extern "system" fn Java_ca_helios5009_hyperion_core_CommandsParse_read<'local>(
     mut env: JNIEnv<'local>,
     _class: JClass<'local>,
     commands: JString<'local>,

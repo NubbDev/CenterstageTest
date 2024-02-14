@@ -1,13 +1,13 @@
 use std::vec;
 
-use crate::{Command, CommandState, Error, ErrorType, Event, Point, Spline, Wait, WaitType};
+use crate::{Command, CommandState, Event, Point, Spline, Wait, WaitType};
 use serde_json::{json, Value};
 
 static ERR: &str = "Invalid Path: ";
 
 pub fn command_read(content: String) -> Result<Value, ()> {
     let mut commands: Vec<Command> = vec![];
-    let mut error: Option<Error> = Option::None;
+    // let mut error: Option<Error> = Option::None;
 
     let content = content.to_lowercase();
     let content = content.replace(' ', "");

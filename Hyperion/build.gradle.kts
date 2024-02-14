@@ -8,6 +8,9 @@ plugins {
 	id("org.mozilla.rust-android-gradle.rust-android") version "0.9.3"
 }
 
+//apply("../build.common.gradle")
+//apply("../build.dependencies.gradle")
+
 android {
 	namespace = "ca.helios5009.hyperion"
 	compileSdk = 34
@@ -41,10 +44,11 @@ android {
 
 extensions.configure(CargoExtension::class.java) {
 	module = "./src/main/rust"
-	libname = "hyperionlib"
+	libname = "hyperion"
 	targets = listOf(
-		"x86","x86_64", "win32-x86-64-gnu"
+		"arm","arm64"
 	)
+
 }
 
 tasks.preBuild.configure {
@@ -52,10 +56,13 @@ tasks.preBuild.configure {
 }
 
 dependencies {
+	compileOnly("org.firstinspires.ftc:RobotCore:9.0.1")
+	compileOnly("org.firstinspires.ftc:Hardware:9.0.1")
+	compileOnly("org.firstinspires.ftc:FtcCommon:9.0.1")
 
 	implementation("androidx.core:core-ktx:1.2.0")
 	implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.6.10"))
-	implementation("com.google.code.gson:gson:2.8.9")
+//	implementation("com.google.code.gson:gson:2.8.9")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 }
 

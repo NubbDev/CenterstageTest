@@ -1,6 +1,6 @@
-package ca.helios5009.core.misc.events
+package ca.helios5009.hyperion.core.misc.events
 
-open class Event(val event: String) {
+abstract class Event(val event: String) {
 
 	open suspend fun run() {}
 }
