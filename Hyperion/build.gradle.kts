@@ -39,15 +39,13 @@ android {
 		jvmTarget = "1.8"
 	}
 
-	ndkVersion = "26.1.10909125"
+	ndkVersion = "26.2.11394342"
 }
 
 extensions.configure(CargoExtension::class.java) {
-	module = "./src/main/rust"
+	module = "./src/rust"
 	libname = "hyperion"
-	targets = listOf(
-		"arm","arm64"
-	)
+	targets = listOf("arm","arm64")
 
 }
 
@@ -62,7 +60,6 @@ dependencies {
 
 	implementation("androidx.core:core-ktx:1.2.0")
 	implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.6.10"))
-//	implementation("com.google.code.gson:gson:2.8.9")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 }
 
